@@ -21,7 +21,7 @@ Consume el endpoint en:
 
 ### Isntalar
 
-Isntalar Dependecias del proyecto :
+Instalar dependecias del proyecto :
 ```bash
 npm i
 ```
