@@ -21,9 +21,9 @@ npm i
 ```
 
 ```bash
-npm run dev
+npm run-script start
 ```
 
 ---
 
-> PD1: Se implementara en un servidor, no totalmente gratuito . Porfavor no abusar de la API.
+> PD: Se implementara en un servidor, no totalmente gratuito . Porfavor no abusar de la API.
