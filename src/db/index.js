@@ -49,7 +49,7 @@ const getCountries = async () => {
   }
 
   const html = $.load(response.data);
-  const table = html("table#main_table_countries");
+  const table = html("table#main_table_countries_today");
   const headingsNodes = table.children("thead").find("th");
   const rowsNodes = table.children("tbody").children("tr");
   const names = {
