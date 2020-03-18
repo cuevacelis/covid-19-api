@@ -2,12 +2,11 @@
 
 Api para informacion de Coronavirus o COVID-19
 
-Consume el endpint en:
--https://proyectosupnjose.website/api/coronavirus/total
+Consume el endpoint en:
 
--https://proyectosupnjose.website/api/coronavirus/countries
+- https://proyectosupnjose.website/api/coronavirus/total
 
-Reglas del endpoint.
+- https://proyectosupnjose.website/api/coronavirus/countries
 
 - Sientase libre de copiar/mejorar/compartir/utilizar como desee.
 
