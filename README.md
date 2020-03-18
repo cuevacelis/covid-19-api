@@ -11,7 +11,7 @@ Consume el endpoint en:
 - Sientase libre de copiar/mejorar/compartir/utilizar como desee.
 
 
-![Global info](https://raw.githubusercontent.com/cuevacelis/covid-19-api/master/screenshots/total.jpg)
+![Global info](https://raw.githubusercontent.com/cuevacelis/covid-19-api/master/screenshots/total-casos.jpg)
 
 ![Cases by country](https://raw.githubusercontent.com/cuevacelis/covid-19-api/master/screenshots/countries.jpg)
 
