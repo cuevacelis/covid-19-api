@@ -26,4 +26,7 @@ npm run-script start
 
 ---
 
-> PD: Se implementara en un servidor, no totalmente gratuito . Porfavor no abusar de la API.
+> PD1: Se implementara en un servidor, no totalmente gratuito . Porfavor no abusar de la API.
+
+> PD2: Agradecimientos a https://github.com/paulrrdiaz/covid19-node.
+
