@@ -19,12 +19,14 @@ Consume el endpoint en:
 
 ---
 
-### Set up
+### Isntalar
 
+Isntalar Dependecias del proyecto :
 ```bash
 npm i
 ```
 
+Ejecutar la API :
 ```bash
 npm run-script start
 ```
