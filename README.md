@@ -6,9 +6,17 @@ Api para informacion de Coronavirus o COVID-19
 
 ![Cases by country](https://raw.githubusercontent.com/cuevacelis/covid-19-api/master/screenshots/countries.jpg)
 
+## Tecnologias y Herramientas
+
+- JS
+- Express (Servidor)
+- Quick.db (SQL)
+- Cors (mecanismo que permite que se puedan solicitar recursos restringidos)
+- Axios (consumo de la api)
+
 ---
 
-## Isntalar
+## Instalar
 
 Instalar dependecias del proyecto :
 ```bash
