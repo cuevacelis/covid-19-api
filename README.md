@@ -2,24 +2,13 @@
 
 Api para informacion de Coronavirus o COVID-19
 
-Consume el endpoint en:
-
-- https://proyectosupnjose.website/api/coronavirus/total
-
-- https://proyectosupnjose.website/api/coronavirus/countries
-
-- Sientase libre de copiar/mejorar/compartir/utilizar como desee.
-
-
 ![Global info](https://raw.githubusercontent.com/cuevacelis/covid-19-api/master/screenshots/total-casos.jpg)
 
 ![Cases by country](https://raw.githubusercontent.com/cuevacelis/covid-19-api/master/screenshots/countries.jpg)
 
-
-
 ---
 
-### Isntalar
+## Isntalar
 
 Instalar dependecias del proyecto :
 ```bash
