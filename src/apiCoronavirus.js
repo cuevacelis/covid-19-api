@@ -1,18 +1,18 @@
+require("dotenv").config();
 const express = require("express");
 const serverless = require("serverless-http");
 const cors = require("cors");
 const expressIp = require("express-ip");
-const routes = require("./routers/index.js");
 const { myCacheMiddleware } = require("./middleware/cache-middleware.js");
+const routes = require("./routers/index.js");
 const server = express();
+const router = express.Router();
 const PORT = process.env.PORT || 3000;
-const bodyParser = require("body-parser");
 
 server.use(cors({ origin: "*" }));
 server.use(express.json());
 server.use(expressIp().getIpInfoMiddleware);
 server.use(myCacheMiddleware);
-server.use(bodyParser);
 server.use("/.netlify/functions/server", router); // path must route to lambda
 server.use(routes);
 
