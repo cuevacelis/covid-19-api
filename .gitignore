@@ -167,3 +167,5 @@ sketch
 
 json.sqlite
 build/
+# Local Netlify folder
+.netlify
