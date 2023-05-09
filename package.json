@@ -6,7 +6,6 @@
   "scripts": {
     "login": "netlify login",
     "link": "netlify link",
-    "build": "netlify build",
     "start:lambda": "netlify dev",
     "start": "node ./src/apiCoronavirus.js",
     "dev": "node-dev ./src/apiCoronavirus.js"
