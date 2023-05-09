@@ -4,6 +4,17 @@ const { myCache } = require("../middleware/cache-middleware.js");
 
 const router = express.Router();
 
+router.get("/api/author", (req, res) => {
+  res.send({
+    developer: "Jose Cueva Celis",
+    linkedin: "https://www.linkedin.com/in/cuevacelis/",
+  });
+});
+
+router.get("/", (req, res) => {
+  res.status(500);
+});
+
 router.get("/api/coronavirus/countries", async (req, res) => {
   try {
     const API_CORONA = new Corona();

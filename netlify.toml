@@ -3,4 +3,6 @@
   build = "build"
 
 [functions]
-  directory = "src"
+  directory = "src/main"
+[functions.api]
+    included_files = ["src/main/*.js"]
