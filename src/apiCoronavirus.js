@@ -1,7 +1,8 @@
-import express from "express";
-import cors from "cors";
-import expressIp from "express-ip";
-import routes from "./routers/index.js";
+const express = require("express");
+const cors = require("cors");
+const expressIp = require("express-ip");
+const routes = require("./routers/index.js");
+const { myCacheMiddleware } = require("./middleware/cache-middleware.js");
 
 const server = express();
 const PORT = process.env.PORT || 5000;
@@ -9,6 +10,7 @@ const PORT = process.env.PORT || 5000;
 server.use(cors({ origin: "*" }));
 server.use(express.json());
 server.use(expressIp().getIpInfoMiddleware);
+server.use(myCacheMiddleware);
 server.use(routes);
 
 server.listen(PORT, () =>

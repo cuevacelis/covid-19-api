@@ -1,96 +1,85 @@
-import { QuickDB } from "quick.db";
-import axios from "axios";
-import $ from "cheerio";
+const { QuickDB } = require("quick.db");
+const axios = require("axios");
+const cheerio = require("cheerio");
 
 const db = new QuickDB();
 
 const getTotal = async () => {
   try {
+    console.log("fetch getTotal");
     const response = await axios.get(
       "https://www.worldometers.info/coronavirus/"
     );
-    if (!response.ok) {
-      console.log("Error", response.status);
-      throw new Error("Error");
-    } else {
-      const total = {
-        cases: null,
-        deaths: null,
-        recovered: null,
-      };
+    const total = {
+      cases: null,
+      deaths: null,
+      recovered: null,
+    };
 
-      const html = $.load(response.data);
-      const numbers = html(".maincounter-number");
+    const html = cheerio.load(response.data);
+    const numbers = html(".maincounter-number");
 
-      for (let i = 0; i < numbers.length; i++) {
-        const number = $(numbers[i]).children("span").text().trim();
-        total[Object.keys(total)[i]] = number;
-      }
-
-      db.set("total", total);
+    for (let i = 0; i < numbers.length; i++) {
+      const number = html(numbers[i]).children("span").text().trim();
+      total[Object.keys(total)[i]] = number;
     }
-  } catch (err) {
-    return null;
+
+    db.set("total", total);
+  } catch (error) {
+    console.log(error);
+    throw error;
   }
 };
 
 const getCountries = async () => {
   try {
+    console.log("fetch getCountries");
     const response = await axios.get(
       "https://www.worldometers.info/coronavirus/"
     );
-    if (!response.ok) {
-      console.log("Error", response.status);
-      throw new Error("Error");
-    } else {
-      const html = $.load(response.data);
-      const table = html("table#main_table_countries_today");
-      const headingsNodes = table.children("thead").find("th");
-      const rowsNodes = table.children("tbody").children("tr");
-      const names = {
-        Country: "country",
-        TotalCases: "total",
-        NewCases: "newCases",
-        TotalDeaths: "totalDeaths",
-        NewDeaths: "newDeaths",
-        TotalRecovered: "totalRecovered",
-        ActiveCases: "activeCases",
-        Serious: "serious",
-      };
-      const matchName = (name) => names[name] || name;
-      const headings = [];
-      const countries = [];
+    const html = cheerio.load(response.data);
+    const table = html("table#main_table_countries_today");
+    const headingsNodes = table.children("thead").find("th");
+    const rowsNodes = table.children("tbody").children("tr");
+    const names = {
+      Country: "country",
+      TotalCases: "total",
+      NewCases: "newCases",
+      TotalDeaths: "totalDeaths",
+      NewDeaths: "newDeaths",
+      TotalRecovered: "totalRecovered",
+      ActiveCases: "activeCases",
+      Serious: "serious",
+    };
+    const matchName = (name) => names[name] || name;
+    const headings = [];
+    const countries = [];
 
-      for (let i = 0; i < headingsNodes.length; i++) {
-        headings.push(matchName($(headingsNodes[i]).text().split(",")[0]));
-      }
-
-      for (let i = 0; i < rowsNodes.length - 1; i++) {
-        const cells = $(rowsNodes[i]).children("td");
-        let country = {};
-
-        for (let o = 0; o < cells.length; o++) {
-          const value = $(cells[o]).text().trim();
-
-          country = {
-            ...country,
-            [headings[o]]: value.length ? value : 0,
-          };
-        }
-
-        countries.push(country);
-      }
-
-      db.set("countries", countries);
+    for (let i = 0; i < headingsNodes.length; i++) {
+      headings.push(matchName(html(headingsNodes[i]).text().split(",")[0]));
     }
-  } catch (err) {
-    return null;
+
+    for (let i = 0; i < rowsNodes.length - 1; i++) {
+      const cells = html(rowsNodes[i]).children("td");
+      let country = {};
+
+      for (let o = 0; o < cells.length; o++) {
+        const value = html(cells[o]).text().trim();
+
+        country = {
+          ...country,
+          [headings[o]]: value.length ? value : 0,
+        };
+      }
+
+      countries.push(country);
+    }
+
+    db.set("countries", countries);
+  } catch (error) {
+    console.log(error);
+    throw error;
   }
 };
 
-setInterval(() => {
-  getCountries();
-  getTotal();
-}, 10000);
-
-export default db;
+module.exports = { db, getTotal, getCountries };

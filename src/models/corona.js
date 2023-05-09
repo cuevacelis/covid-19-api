@@ -1,23 +1,25 @@
-import db from "../db/index.js";
+const { db, getTotal, getCountries } = require("../db/index.js");
 
 class Corona {
   async total() {
     try {
-      const data = await db.get("total");
-      return data;
+      await getTotal();
+      const dataTotal = await db.get("total");
+      return dataTotal;
     } catch (error) {
-      throw new Error(error);
+      throw error;
     }
   }
 
   async countries() {
     try {
-      const data = await db.get("countries");
-      return data;
+      await getCountries();
+      const dataCountries = await db.get("countries");
+      return dataCountries;
     } catch (error) {
-      throw new Error(error);
+      throw error;
     }
   }
 }
 
-export default Corona;
+module.exports = Corona;

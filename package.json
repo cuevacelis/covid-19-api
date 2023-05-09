@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Api de Coronavirus Peru",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "clean": "rm -rf build && mkdir build",
     "babelify": "babel -d ./build ./src -s",
@@ -24,6 +23,7 @@
     "country-list": "^2.3.0",
     "express": "^4.18.2",
     "express-ip": "^1.0.4",
+    "node-cache": "^5.1.2",
     "quick.db": "^9.1.6"
   },
   "devDependencies": {
