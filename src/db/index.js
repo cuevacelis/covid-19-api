@@ -1,8 +1,5 @@
-const { QuickDB } = require("quick.db");
 const axios = require("axios");
 const cheerio = require("cheerio");
-
-const db = new QuickDB();
 
 const getTotal = async () => {
   try {
@@ -24,7 +21,7 @@ const getTotal = async () => {
       total[Object.keys(total)[i]] = number;
     }
 
-    db.set("total", total);
+    return total;
   } catch (error) {
     console.log(error);
     throw error;
@@ -75,11 +72,11 @@ const getCountries = async () => {
       countries.push(country);
     }
 
-    db.set("countries", countries);
+    return countries;
   } catch (error) {
     console.log(error);
     throw error;
   }
 };
 
-module.exports = { db, getTotal, getCountries };
+module.exports = { getTotal, getCountries };

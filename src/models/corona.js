@@ -1,10 +1,9 @@
-const { db, getTotal, getCountries } = require("../db/index.js");
+const { getTotal, getCountries } = require("../db/index.js");
 
 class Corona {
   async total() {
     try {
-      await getTotal();
-      const dataTotal = await db.get("total");
+      const dataTotal = await getTotal();
       return dataTotal;
     } catch (error) {
       throw error;
@@ -13,8 +12,7 @@ class Corona {
 
   async countries() {
     try {
-      await getCountries();
-      const dataCountries = await db.get("countries");
+      const dataCountries = await getCountries();
       return dataCountries;
     } catch (error) {
       throw error;
