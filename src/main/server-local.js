@@ -12,7 +12,7 @@ server.use(cors({ origin: "*" }));
 server.use(express.json());
 server.use(expressIp().getIpInfoMiddleware);
 server.use(myCacheMiddleware);
-server.use("/.netlify/functions/server", routes); // path must route to lambda
+server.use("/", routes); // path must route to lambda
 
 server.listen(PORT, () =>
   console.info(`Server listening at http://localhost:${PORT}`)
