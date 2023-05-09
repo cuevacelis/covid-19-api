@@ -1,4 +1,6 @@
 [build]
   command = "npm install"
-  functions = "functions"
   build = "build"
+
+[functions]
+  directory = "src"
