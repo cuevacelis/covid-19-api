@@ -4,7 +4,7 @@
   "description": "Api de Coronavirus Peru",
   "main": "functions/apiCoronavirus.js",
   "scripts": {
-    "build": "netlify-lambda build src/apiCoronavirus.js",
+    "build": "netlify-lambda build src",
     "start": "node ./src/apiCoronavirus.js",
     "dev": "node-dev ./src/apiCoronavirus.js"
   },
