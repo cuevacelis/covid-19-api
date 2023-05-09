@@ -2,7 +2,7 @@
   "name": "coronavirus-api-backend",
   "version": "1.0.0",
   "description": "Api de Coronavirus Peru",
-  "main": "index.js",
+  "main": "functions/server.js",
   "scripts": {
     "build": "netlify-lambda build express",
     "start": "node src/apiCoronavirus.js",
