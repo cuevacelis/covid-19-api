@@ -1,3 +1,4 @@
 [build]
   command = "npm install"
   functions = "functions"
+  build = "build"
