@@ -1,4 +1,5 @@
 const express = require("express");
+const serverless = require("serverless-http");
 const cors = require("cors");
 const expressIp = require("express-ip");
 const routes = require("./routers/index.js");
@@ -27,3 +28,6 @@ server.get("/api/coronavirus", async (req, res) => {
 server.get("*", async (req, res) => {
   await res.sendStatus(404);
 });
+
+module.exports = server;
+module.exports.handler = serverless(server);
