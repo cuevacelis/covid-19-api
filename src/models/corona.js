@@ -1,10 +1,9 @@
-import axios from "axios";
-import db from "../db";
+import db from "../db/index.js";
 
 class Corona {
   async total() {
     try {
-      const data = await db.fetch("total");
+      const data = await db.get("total");
       return data;
     } catch (error) {
       throw new Error(error);
@@ -13,7 +12,7 @@ class Corona {
 
   async countries() {
     try {
-      const data = await db.fetch("countries");
+      const data = await db.get("countries");
       return data;
     } catch (error) {
       throw new Error(error);
